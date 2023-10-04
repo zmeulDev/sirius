@@ -102,14 +102,30 @@
     </div>
     <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
         <li class="nav-item">
+            <a class="nav-link" href="#user_checklist_comments" role="tab" data-toggle="tab">
+                {{ trans('cruds.checklistComment.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#user_user_alerts" role="tab" data-toggle="tab">
                 {{ trans('cruds.userAlert.title') }}
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#users_checklists" role="tab" data-toggle="tab">
+                {{ trans('cruds.checklist.title') }}
+            </a>
+        </li>
     </ul>
     <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="user_checklist_comments">
+            @includeIf('admin.users.relationships.userChecklistComments', ['checklistComments' => $user->userChecklistComments])
+        </div>
         <div class="tab-pane" role="tabpanel" id="user_user_alerts">
             @includeIf('admin.users.relationships.userUserAlerts', ['userAlerts' => $user->userUserAlerts])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="users_checklists">
+            @includeIf('admin.users.relationships.usersChecklists', ['checklists' => $user->usersChecklists])
         </div>
     </div>
 </div>

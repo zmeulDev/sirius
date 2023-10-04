@@ -20,6 +20,7 @@ class UpdateBackupTrackerRequest extends FormRequest
             'bck_tracker_name' => [
                 'string',
                 'required',
+                'unique:backup_trackers,bck_tracker_name,' . request()->route('backup_tracker')->id,
             ],
         ];
     }

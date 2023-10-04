@@ -65,6 +65,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('maintenances/destroy', 'MaintenanceController@massDestroy')->name('maintenances.massDestroy');
     Route::resource('maintenances', 'MaintenanceController');
 
+    // Machine
+    Route::delete('machines/destroy', 'MachineController@massDestroy')->name('machines.massDestroy');
+    Route::resource('machines', 'MachineController');
+
+    // Checklist
+    Route::delete('checklists/destroy', 'ChecklistController@massDestroy')->name('checklists.massDestroy');
+    Route::post('checklists/media', 'ChecklistController@storeMedia')->name('checklists.storeMedia');
+    Route::post('checklists/ckmedia', 'ChecklistController@storeCKEditorImages')->name('checklists.storeCKEditorImages');
+    Route::resource('checklists', 'ChecklistController');
+
+    // Checklist Comment
+    Route::delete('checklist-comments/destroy', 'ChecklistCommentController@massDestroy')->name('checklist-comments.massDestroy');
+    Route::post('checklist-comments/media', 'ChecklistCommentController@storeMedia')->name('checklist-comments.storeMedia');
+    Route::post('checklist-comments/ckmedia', 'ChecklistCommentController@storeCKEditorImages')->name('checklist-comments.storeCKEditorImages');
+    Route::resource('checklist-comments', 'ChecklistCommentController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');

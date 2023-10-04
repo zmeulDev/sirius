@@ -10,7 +10,7 @@ class CreateFarmsTable extends Migration
     {
         Schema::create('farms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('farm_name');
+            $table->string('farm_name')->unique();
             $table->string('farm_prefix');
             $table->timestamps();
             $table->softDeletes();

@@ -14,7 +14,7 @@ class Domain extends Model
     public $table = 'domains';
 
     public static $searchable = [
-        'farm_name',
+        'domain_name',
     ];
 
     protected $dates = [
@@ -24,7 +24,7 @@ class Domain extends Model
     ];
 
     protected $fillable = [
-        'farm_name',
+        'domain_name',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -33,6 +33,11 @@ class Domain extends Model
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function domainChecklists()
+    {
+        return $this->hasMany(Checklist::class, 'domain_id', 'id');
     }
 
     public function farmDomainFarms()

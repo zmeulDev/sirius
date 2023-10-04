@@ -10,7 +10,7 @@ class CreateBackupTrackersTable extends Migration
     {
         Schema::create('backup_trackers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('bck_tracker_name');
+            $table->string('bck_tracker_name')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

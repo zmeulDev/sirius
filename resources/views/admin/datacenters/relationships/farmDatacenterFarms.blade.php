@@ -28,10 +28,10 @@
                                 {{ trans('cruds.farm.fields.farm_name') }}
                             </th>
                             <th>
-                                {{ trans('cruds.farm.fields.farm_datacenter') }}
+                                {{ trans('cruds.farm.fields.farm_prefix') }}
                             </th>
                             <th>
-                                {{ trans('cruds.farm.fields.farm_prefix') }}
+                                {{ trans('cruds.farm.fields.farm_datacenter') }}
                             </th>
                             <th>
                                 {{ trans('cruds.farm.fields.farm_domain') }}
@@ -60,16 +60,16 @@
                                     {{ $farm->farm_name ?? '' }}
                                 </td>
                                 <td>
+                                    {{ $farm->farm_prefix ?? '' }}
+                                </td>
+                                <td>
                                     @foreach($farm->farm_datacenters as $key => $item)
                                         <span class="badge badge-info">{{ $item->datacenter_name }}</span>
                                     @endforeach
                                 </td>
                                 <td>
-                                    {{ $farm->farm_prefix ?? '' }}
-                                </td>
-                                <td>
                                     @foreach($farm->farm_domains as $key => $item)
-                                        <span class="badge badge-info">{{ $item->farm_name }}</span>
+                                        <span class="badge badge-info">{{ $item->domain_name }}</span>
                                     @endforeach
                                 </td>
                                 <td>

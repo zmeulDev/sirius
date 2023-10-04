@@ -10,7 +10,7 @@ class CreateDomainsTable extends Migration
     {
         Schema::create('domains', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('farm_name')->unique();
+            $table->string('domain_name')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

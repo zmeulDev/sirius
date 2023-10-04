@@ -268,6 +268,70 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 65,
+                'title' => 'setup_access',
+            ],
+            [
+                'id'    => 66,
+                'title' => 'machine_create',
+            ],
+            [
+                'id'    => 67,
+                'title' => 'machine_edit',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'machine_show',
+            ],
+            [
+                'id'    => 69,
+                'title' => 'machine_delete',
+            ],
+            [
+                'id'    => 70,
+                'title' => 'machine_access',
+            ],
+            [
+                'id'    => 71,
+                'title' => 'checklist_create',
+            ],
+            [
+                'id'    => 72,
+                'title' => 'checklist_edit',
+            ],
+            [
+                'id'    => 73,
+                'title' => 'checklist_show',
+            ],
+            [
+                'id'    => 74,
+                'title' => 'checklist_delete',
+            ],
+            [
+                'id'    => 75,
+                'title' => 'checklist_access',
+            ],
+            [
+                'id'    => 76,
+                'title' => 'checklist_comment_create',
+            ],
+            [
+                'id'    => 77,
+                'title' => 'checklist_comment_edit',
+            ],
+            [
+                'id'    => 78,
+                'title' => 'checklist_comment_show',
+            ],
+            [
+                'id'    => 79,
+                'title' => 'checklist_comment_delete',
+            ],
+            [
+                'id'    => 80,
+                'title' => 'checklist_comment_access',
+            ],
+            [
+                'id'    => 81,
                 'title' => 'profile_password_edit',
             ],
         ];

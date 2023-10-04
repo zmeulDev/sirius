@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.farm.fields.farm_prefix') }}
+                        </th>
+                        <td>
+                            {{ $farm->farm_prefix }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.farm.fields.farm_datacenter') }}
                         </th>
                         <td>
@@ -43,19 +51,11 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.farm.fields.farm_prefix') }}
-                        </th>
-                        <td>
-                            {{ $farm->farm_prefix }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.farm.fields.farm_domain') }}
                         </th>
                         <td>
                             @foreach($farm->farm_domains as $key => $farm_domain)
-                                <span class="label label-info">{{ $farm_domain->farm_name }}</span>
+                                <span class="label label-info">{{ $farm_domain->domain_name }}</span>
                             @endforeach
                         </td>
                     </tr>
@@ -90,6 +90,22 @@
     </div>
 </div>
 
-
+<div class="card">
+    <div class="card-header">
+        {{ trans('global.relatedData') }}
+    </div>
+    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#farm_checklists" role="tab" data-toggle="tab">
+                {{ trans('cruds.checklist.title') }}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="farm_checklists">
+            @includeIf('admin.farms.relationships.farmChecklists', ['checklists' => $farm->farmChecklists])
+        </div>
+    </div>
+</div>
 
 @endsection

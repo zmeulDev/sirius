@@ -25,10 +25,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.domain.fields.farm_name') }}
+                            {{ trans('cruds.domain.fields.domain_name') }}
                         </th>
                         <td>
-                            {{ $domain->farm_name }}
+                            {{ $domain->domain_name }}
                         </td>
                     </tr>
                 </tbody>
@@ -48,12 +48,20 @@
     </div>
     <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
         <li class="nav-item">
+            <a class="nav-link" href="#domain_checklists" role="tab" data-toggle="tab">
+                {{ trans('cruds.checklist.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#farm_domain_farms" role="tab" data-toggle="tab">
                 {{ trans('cruds.farm.title') }}
             </a>
         </li>
     </ul>
     <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="domain_checklists">
+            @includeIf('admin.domains.relationships.domainChecklists', ['checklists' => $domain->domainChecklists])
+        </div>
         <div class="tab-pane" role="tabpanel" id="farm_domain_farms">
             @includeIf('admin.domains.relationships.farmDomainFarms', ['farms' => $domain->farmDomainFarms])
         </div>

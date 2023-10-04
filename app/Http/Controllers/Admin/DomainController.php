@@ -54,7 +54,7 @@ class DomainController extends Controller
     {
         abort_if(Gate::denies('domain_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $domain->load('farmDomainFarms');
+        $domain->load('domainChecklists', 'farmDomainFarms');
 
         return view('admin.domains.show', compact('domain'));
     }

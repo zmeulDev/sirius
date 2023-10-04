@@ -20,6 +20,7 @@ class StoreBackupClusterRequest extends FormRequest
             'bck_clus_name' => [
                 'string',
                 'required',
+                'unique:backup_clusters',
             ],
         ];
     }

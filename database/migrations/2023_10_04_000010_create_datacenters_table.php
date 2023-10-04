@@ -10,7 +10,7 @@ class CreateDatacentersTable extends Migration
     {
         Schema::create('datacenters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('datacenter_name');
+            $table->string('datacenter_name')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

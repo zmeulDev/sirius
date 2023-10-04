@@ -40,7 +40,7 @@ class FarmController extends Controller
 
         $farm_datacenters = Datacenter::pluck('datacenter_name', 'id');
 
-        $farm_domains = Domain::pluck('farm_name', 'id');
+        $farm_domains = Domain::pluck('domain_name', 'id');
 
         $farm_bck_trackers = BackupTracker::pluck('bck_tracker_name', 'id');
 
@@ -66,7 +66,7 @@ class FarmController extends Controller
 
         $farm_datacenters = Datacenter::pluck('datacenter_name', 'id');
 
-        $farm_domains = Domain::pluck('farm_name', 'id');
+        $farm_domains = Domain::pluck('domain_name', 'id');
 
         $farm_bck_trackers = BackupTracker::pluck('bck_tracker_name', 'id');
 
@@ -92,7 +92,7 @@ class FarmController extends Controller
     {
         abort_if(Gate::denies('farm_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $farm->load('farm_datacenters', 'farm_domains', 'farm_bck_trackers', 'farm_bck_clusters');
+        $farm->load('farm_datacenters', 'farm_domains', 'farm_bck_trackers', 'farm_bck_clusters', 'farmChecklists');
 
         return view('admin.farms.show', compact('farm'));
     }

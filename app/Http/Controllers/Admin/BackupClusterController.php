@@ -54,7 +54,7 @@ class BackupClusterController extends Controller
     {
         abort_if(Gate::denies('backup_cluster_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $backupCluster->load('farmBckClusterFarms');
+        $backupCluster->load('backupClusterChecklists', 'farmBckClusterFarms');
 
         return view('admin.backupClusters.show', compact('backupCluster'));
     }

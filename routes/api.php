@@ -31,4 +31,15 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Maintenance
     Route::apiResource('maintenances', 'MaintenanceApiController');
+
+    // Machine
+    Route::apiResource('machines', 'MachineApiController');
+
+    // Checklist
+    Route::post('checklists/media', 'ChecklistApiController@storeMedia')->name('checklists.storeMedia');
+    Route::apiResource('checklists', 'ChecklistApiController');
+
+    // Checklist Comment
+    Route::post('checklist-comments/media', 'ChecklistCommentApiController@storeMedia')->name('checklist-comments.storeMedia');
+    Route::apiResource('checklist-comments', 'ChecklistCommentApiController');
 });

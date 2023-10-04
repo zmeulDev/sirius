@@ -20,6 +20,11 @@ class UpdateFarmRequest extends FormRequest
             'farm_name' => [
                 'string',
                 'required',
+                'unique:farms,farm_name,' . request()->route('farm')->id,
+            ],
+            'farm_prefix' => [
+                'string',
+                'required',
             ],
             'farm_datacenters.*' => [
                 'integer',
@@ -28,15 +33,10 @@ class UpdateFarmRequest extends FormRequest
                 'required',
                 'array',
             ],
-            'farm_prefix' => [
-                'string',
-                'required',
-            ],
             'farm_domains.*' => [
                 'integer',
             ],
             'farm_domains' => [
-                'required',
                 'array',
             ],
             'farm_bck_trackers.*' => [
