@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Models;
+
+use DateTimeInterface;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Domain extends Model
+{
+    use SoftDeletes, HasFactory;
+
+    public $table = 'domains';
+
+    public static $searchable = [
+        'farm_name',
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable = [
+        'farm_name',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
+
+    public function farmDomainFarms()
+    {
+        return $this->belongsToMany(Farm::class);
+    }
+}
