@@ -110,9 +110,19 @@ class User extends Authenticatable implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
+    public function userChecklistComments()
+    {
+        return $this->hasMany(ChecklistComment::class, 'user_id', 'id');
+    }
+
     public function userUserAlerts()
     {
         return $this->belongsToMany(UserAlert::class);
+    }
+
+    public function usersChecklists()
+    {
+        return $this->belongsToMany(Checklist::class);
     }
 
     public function getPhotoAttribute()

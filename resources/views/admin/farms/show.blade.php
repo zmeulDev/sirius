@@ -90,6 +90,22 @@
     </div>
 </div>
 
-
+<div class="card">
+    <div class="card-header">
+        {{ trans('global.relatedData') }}
+    </div>
+    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#farm_checklists" role="tab" data-toggle="tab">
+                {{ trans('cruds.checklist.title') }}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="farm_checklists">
+            @includeIf('admin.farms.relationships.farmChecklists', ['checklists' => $farm->farmChecklists])
+        </div>
+    </div>
+</div>
 
 @endsection

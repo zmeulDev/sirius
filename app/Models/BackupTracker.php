@@ -35,6 +35,11 @@ class BackupTracker extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
+    public function backupTrackerChecklists()
+    {
+        return $this->hasMany(Checklist::class, 'backup_tracker_id', 'id');
+    }
+
     public function farmBckTrackerFarms()
     {
         return $this->belongsToMany(Farm::class);

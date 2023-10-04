@@ -43,6 +43,11 @@ class BackupCluster extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
+    public function backupClusterChecklists()
+    {
+        return $this->hasMany(Checklist::class, 'backup_cluster_id', 'id');
+    }
+
     public function farmBckClusterFarms()
     {
         return $this->belongsToMany(Farm::class);

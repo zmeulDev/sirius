@@ -92,7 +92,7 @@ class FarmController extends Controller
     {
         abort_if(Gate::denies('farm_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $farm->load('farm_datacenters', 'farm_domains', 'farm_bck_trackers', 'farm_bck_clusters');
+        $farm->load('farm_datacenters', 'farm_domains', 'farm_bck_trackers', 'farm_bck_clusters', 'farmChecklists');
 
         return view('admin.farms.show', compact('farm'));
     }

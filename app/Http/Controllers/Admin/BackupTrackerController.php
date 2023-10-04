@@ -54,7 +54,7 @@ class BackupTrackerController extends Controller
     {
         abort_if(Gate::denies('backup_tracker_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $backupTracker->load('farmBckTrackerFarms');
+        $backupTracker->load('backupTrackerChecklists', 'farmBckTrackerFarms');
 
         return view('admin.backupTrackers.show', compact('backupTracker'));
     }

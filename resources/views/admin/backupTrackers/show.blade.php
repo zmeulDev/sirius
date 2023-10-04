@@ -48,12 +48,20 @@
     </div>
     <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
         <li class="nav-item">
+            <a class="nav-link" href="#backup_tracker_checklists" role="tab" data-toggle="tab">
+                {{ trans('cruds.checklist.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#farm_bck_tracker_farms" role="tab" data-toggle="tab">
                 {{ trans('cruds.farm.title') }}
             </a>
         </li>
     </ul>
     <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="backup_tracker_checklists">
+            @includeIf('admin.backupTrackers.relationships.backupTrackerChecklists', ['checklists' => $backupTracker->backupTrackerChecklists])
+        </div>
         <div class="tab-pane" role="tabpanel" id="farm_bck_tracker_farms">
             @includeIf('admin.backupTrackers.relationships.farmBckTrackerFarms', ['farms' => $backupTracker->farmBckTrackerFarms])
         </div>
