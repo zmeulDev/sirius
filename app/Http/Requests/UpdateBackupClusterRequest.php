@@ -20,6 +20,7 @@ class UpdateBackupClusterRequest extends FormRequest
             'bck_clus_name' => [
                 'string',
                 'required',
+                'unique:backup_clusters,bck_clus_name,' . request()->route('backup_cluster')->id,
             ],
         ];
     }

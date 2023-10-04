@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.farm.fields.farm_prefix') }}
+                        </th>
+                        <td>
+                            {{ $farm->farm_prefix }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.farm.fields.farm_datacenter') }}
                         </th>
                         <td>
@@ -43,19 +51,11 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.farm.fields.farm_prefix') }}
-                        </th>
-                        <td>
-                            {{ $farm->farm_prefix }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.farm.fields.farm_domain') }}
                         </th>
                         <td>
                             @foreach($farm->farm_domains as $key => $farm_domain)
-                                <span class="label label-info">{{ $farm_domain->farm_name }}</span>
+                                <span class="label label-info">{{ $farm_domain->domain_name }}</span>
                             @endforeach
                         </td>
                     </tr>

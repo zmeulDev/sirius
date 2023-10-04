@@ -20,6 +20,11 @@ class StoreFarmRequest extends FormRequest
             'farm_name' => [
                 'string',
                 'required',
+                'unique:farms',
+            ],
+            'farm_prefix' => [
+                'string',
+                'required',
             ],
             'farm_datacenters.*' => [
                 'integer',
@@ -28,15 +33,10 @@ class StoreFarmRequest extends FormRequest
                 'required',
                 'array',
             ],
-            'farm_prefix' => [
-                'string',
-                'required',
-            ],
             'farm_domains.*' => [
                 'integer',
             ],
             'farm_domains' => [
-                'required',
                 'array',
             ],
             'farm_bck_trackers.*' => [

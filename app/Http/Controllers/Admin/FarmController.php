@@ -40,7 +40,7 @@ class FarmController extends Controller
 
         $farm_datacenters = Datacenter::pluck('datacenter_name', 'id');
 
-        $farm_domains = Domain::pluck('farm_name', 'id');
+        $farm_domains = Domain::pluck('domain_name', 'id');
 
         $farm_bck_trackers = BackupTracker::pluck('bck_tracker_name', 'id');
 
@@ -66,7 +66,7 @@ class FarmController extends Controller
 
         $farm_datacenters = Datacenter::pluck('datacenter_name', 'id');
 
-        $farm_domains = Domain::pluck('farm_name', 'id');
+        $farm_domains = Domain::pluck('domain_name', 'id');
 
         $farm_bck_trackers = BackupTracker::pluck('bck_tracker_name', 'id');
 
