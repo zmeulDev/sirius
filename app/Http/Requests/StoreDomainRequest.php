@@ -17,7 +17,7 @@ class StoreDomainRequest extends FormRequest
     public function rules()
     {
         return [
-            'farm_name' => [
+            'domain_name' => [
                 'string',
                 'required',
                 'unique:domains',

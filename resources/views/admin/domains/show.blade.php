@@ -25,10 +25,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.domain.fields.farm_name') }}
+                            {{ trans('cruds.domain.fields.domain_name') }}
                         </th>
                         <td>
-                            {{ $domain->farm_name }}
+                            {{ $domain->domain_name }}
                         </td>
                     </tr>
                 </tbody>

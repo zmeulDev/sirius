@@ -20,6 +20,7 @@ class StoreBackupTrackerRequest extends FormRequest
             'bck_tracker_name' => [
                 'string',
                 'required',
+                'unique:backup_trackers',
             ],
         ];
     }

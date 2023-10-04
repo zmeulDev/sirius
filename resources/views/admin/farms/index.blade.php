@@ -29,10 +29,10 @@
                             {{ trans('cruds.farm.fields.farm_name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.farm.fields.farm_datacenter') }}
+                            {{ trans('cruds.farm.fields.farm_prefix') }}
                         </th>
                         <th>
-                            {{ trans('cruds.farm.fields.farm_prefix') }}
+                            {{ trans('cruds.farm.fields.farm_datacenter') }}
                         </th>
                         <th>
                             {{ trans('cruds.farm.fields.farm_domain') }}
@@ -57,6 +57,9 @@
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
                             <select class="search">
                                 <option value>{{ trans('global.all') }}</option>
                                 @foreach($datacenters as $key => $item)
@@ -65,13 +68,10 @@
                             </select>
                         </td>
                         <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
                             <select class="search">
                                 <option value>{{ trans('global.all') }}</option>
                                 @foreach($domains as $key => $item)
-                                    <option value="{{ $item->farm_name }}">{{ $item->farm_name }}</option>
+                                    <option value="{{ $item->domain_name }}">{{ $item->domain_name }}</option>
                                 @endforeach
                             </select>
                         </td>
@@ -108,16 +108,16 @@
                                 {{ $farm->farm_name ?? '' }}
                             </td>
                             <td>
+                                {{ $farm->farm_prefix ?? '' }}
+                            </td>
+                            <td>
                                 @foreach($farm->farm_datacenters as $key => $item)
                                     <span class="badge badge-info">{{ $item->datacenter_name }}</span>
                                 @endforeach
                             </td>
                             <td>
-                                {{ $farm->farm_prefix ?? '' }}
-                            </td>
-                            <td>
                                 @foreach($farm->farm_domains as $key => $item)
-                                    <span class="badge badge-info">{{ $item->farm_name }}</span>
+                                    <span class="badge badge-info">{{ $item->domain_name }}</span>
                                 @endforeach
                             </td>
                             <td>

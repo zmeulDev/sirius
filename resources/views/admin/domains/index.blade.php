@@ -26,7 +26,7 @@
                             {{ trans('cruds.domain.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.domain.fields.farm_name') }}
+                            {{ trans('cruds.domain.fields.domain_name') }}
                         </th>
                         <th>
                             &nbsp;
@@ -55,7 +55,7 @@
                                 {{ $domain->id ?? '' }}
                             </td>
                             <td>
-                                {{ $domain->farm_name ?? '' }}
+                                {{ $domain->domain_name ?? '' }}
                             </td>
                             <td>
                                 @can('domain_show')

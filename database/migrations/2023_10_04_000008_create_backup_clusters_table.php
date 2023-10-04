@@ -10,7 +10,7 @@ class CreateBackupClustersTable extends Migration
     {
         Schema::create('backup_clusters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('bck_clus_name');
+            $table->string('bck_clus_name')->unique();
             $table->string('bck_clus_type')->nullable();
             $table->timestamps();
             $table->softDeletes();

@@ -17,10 +17,10 @@ class UpdateDomainRequest extends FormRequest
     public function rules()
     {
         return [
-            'farm_name' => [
+            'domain_name' => [
                 'string',
                 'required',
-                'unique:domains,farm_name,' . request()->route('domain')->id,
+                'unique:domains,domain_name,' . request()->route('domain')->id,
             ],
         ];
     }
