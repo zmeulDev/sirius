@@ -35,6 +35,11 @@ class Domain extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
+    public function domainChecklists()
+    {
+        return $this->hasMany(Checklist::class, 'domain_id', 'id');
+    }
+
     public function farmDomainFarms()
     {
         return $this->belongsToMany(Farm::class);

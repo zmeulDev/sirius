@@ -37,6 +37,11 @@ class Farm extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
+    public function farmChecklists()
+    {
+        return $this->hasMany(Checklist::class, 'farm_id', 'id');
+    }
+
     public function farm_datacenters()
     {
         return $this->belongsToMany(Datacenter::class);
