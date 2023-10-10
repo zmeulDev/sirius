@@ -13,18 +13,20 @@ class Datacenter extends Model
 
     public $table = 'datacenters';
 
-    public static $searchable = [
-        'datacenter_name',
-    ];
-
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
+    public static $searchable = [
+        'datacenter_name',
+        'datacenter_location',
+    ];
+
     protected $fillable = [
         'datacenter_name',
+        'datacenter_location',
         'created_at',
         'updated_at',
         'deleted_at',

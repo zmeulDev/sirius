@@ -22,6 +22,10 @@ class StoreDatacenterRequest extends FormRequest
                 'required',
                 'unique:datacenters',
             ],
+            'datacenter_location' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

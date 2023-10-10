@@ -29,11 +29,17 @@
                             {{ trans('cruds.datacenter.fields.datacenter_name') }}
                         </th>
                         <th>
+                            {{ trans('cruds.datacenter.fields.datacenter_location') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
                     <tr>
                         <td>
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -56,6 +62,9 @@
                             </td>
                             <td>
                                 {{ $datacenter->datacenter_name ?? '' }}
+                            </td>
+                            <td>
+                                {{ $datacenter->datacenter_location ?? '' }}
                             </td>
                             <td>
                                 @can('datacenter_show')

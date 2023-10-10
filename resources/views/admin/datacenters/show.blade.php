@@ -31,6 +31,14 @@
                             {{ $datacenter->datacenter_name }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.datacenter.fields.datacenter_location') }}
+                        </th>
+                        <td>
+                            {{ $datacenter->datacenter_location }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

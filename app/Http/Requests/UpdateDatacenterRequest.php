@@ -22,6 +22,10 @@ class UpdateDatacenterRequest extends FormRequest
                 'required',
                 'unique:datacenters,datacenter_name,' . request()->route('datacenter')->id,
             ],
+            'datacenter_location' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

@@ -19,6 +19,14 @@
                 <span class="help-block">{{ trans('cruds.datacenter.fields.datacenter_name_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="datacenter_location">{{ trans('cruds.datacenter.fields.datacenter_location') }}</label>
+                <input class="form-control {{ $errors->has('datacenter_location') ? 'is-invalid' : '' }}" type="text" name="datacenter_location" id="datacenter_location" value="{{ old('datacenter_location', $datacenter->datacenter_location) }}" required>
+                @if($errors->has('datacenter_location'))
+                    <span class="text-danger">{{ $errors->first('datacenter_location') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.datacenter.fields.datacenter_location_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
