@@ -46,4 +46,7 @@ class ChangePasswordController extends Controller
 
         return redirect()->route('login')->with('message', __('global.delete_account_success'));
     }
+
+
+
 }
