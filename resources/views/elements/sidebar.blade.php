@@ -6,17 +6,17 @@
                 
                 <li>
                     <a class=" {{ request()->routeIs("admin.home") ? "active" : "" }}" href="{{ route("admin.home") }}">
-                        <i class="fas fa-fw fa-tachometer-alt nav-icon">
-                        </i>
-                        <p>
-                            {{ trans('global.dashboard') }}
-                        </p>
+                        
+                        <i class="flaticon-381-home-2"></i> 
+                            <span class="nav-text">{{ trans('global.dashboard') }}</span>
                     </a>
                 </li>
                 @can('setup_access')
                     <li class="{{ request()->is("admin/checklists*") ? "menu-open" : "" }} {{ request()->is("admin/machines*") ? "menu-open" : "" }} {{ request()->is("admin/checklist-comments*") ? "menu-open" : "" }}">
-                        <a class="has-arrow ai-icon {{ request()->is("admin/checklists*") ? "active" : "" }} {{ request()->is("admin/machines*") ? "active" : "" }} {{ request()->is("admin/checklist-comments*") ? "active" : "" }}" href="javascript:void(0);" aria-expanded="false">
-                          {{ trans('cruds.setup.title') }}
+                        
+                    <a class="has-arrow ai-icon {{ request()->is("admin/checklists*") ? "active" : "" }} {{ request()->is("admin/machines*") ? "active" : "" }} {{ request()->is("admin/checklist-comments*") ? "active" : "" }}" href="javascript:void(0);" aria-expanded="false">
+                            <i class="flaticon-381-magic-wand"></i> 
+                            <span class="nav-text">{{ trans('cruds.setup.title') }}</span>
                         </a>
                         <ul aria-expanded="false">
                             @can('checklist_access')
@@ -46,14 +46,18 @@
                 @can('maintenance_access')
                     <li class="">
                         <a href="{{ route("admin.maintenances.index") }}" class=" {{ request()->is("admin/maintenances") || request()->is("admin/maintenances/*") ? "active" : "" }}">
-                            {{ trans('cruds.maintenance.title') }}
+                        <i class="flaticon-381-alarm-clock-1"></i> 
+                            <span class="nav-text">{{ trans('cruds.maintenance.title') }}</span>   
+                        
                         </a>
                     </li>
                 @endcan
                 @can('report_access')
                     <li class="  {{ request()->is("admin/daily-checks*") ? "menu-open" : "" }} {{ request()->is("admin/xo-softs*") ? "menu-open" : "" }}">
                         <a class="has-arrow ai-icon {{ request()->is("admin/daily-checks*") ? "active" : "" }} {{ request()->is("admin/xo-softs*") ? "active" : "" }}" href="javascript:void(0);" aria-expanded="false">
-                           {{ trans('cruds.report.title') }}
+                        <i class="flaticon-381-diploma"></i> 
+                            <span class="nav-text">{{ trans('cruds.report.title') }}</span>    
+                        
                         </a>
                         <ul class="aria-expanded="false"">
                             @can('daily_check_access')
@@ -76,7 +80,9 @@
                 @can('farm_info_access')
                     <li class="  {{ request()->is("admin/farms*") ? "menu-open" : "" }} {{ request()->is("admin/backup-clusters*") ? "menu-open" : "" }} {{ request()->is("admin/backup-trackers*") ? "menu-open" : "" }} {{ request()->is("admin/domains*") ? "menu-open" : "" }} {{ request()->is("admin/datacenters*") ? "menu-open" : "" }}">
                         <a class="has-arrow ai-icon {{ request()->is("admin/farms*") ? "active" : "" }} {{ request()->is("admin/backup-clusters*") ? "active" : "" }} {{ request()->is("admin/backup-trackers*") ? "active" : "" }} {{ request()->is("admin/domains*") ? "active" : "" }} {{ request()->is("admin/datacenters*") ? "active" : "" }}" href="javascript:void(0);" aria-expanded="false">
-                           {{ trans('cruds.farmInfo.title') }}
+                        <i class="flaticon-381-panel-3"></i> 
+                            <span class="nav-text">{{ trans('cruds.farmInfo.title') }}</span>   
+                        
                         </a>
                         <ul class="aria-expanded="false"">
                             @can('farm_access')
@@ -124,7 +130,9 @@
                 @can('setting_access')
                     <li class="{{ request()->is("admin/user-alerts*") ? "menu-open" : "" }}">
                         <a class="has-arrow ai-icon {{ request()->is("admin/user-alerts*") ? "active" : "" }}" href="javascript:void(0);" aria-expanded="false">
-                           {{ trans('cruds.setting.title') }}
+                        <i class="flaticon-381-settings-3"></i> 
+                            <span class="nav-text">{{ trans('cruds.setting.title') }}</span>   
+                        
                         </a>
                         <ul aria-expanded="false">
                             @can('user_alert_access')
@@ -140,8 +148,8 @@
                 @can('user_management_access')
                     <li class="  {{ request()->is("admin/users*") ? "menu-open" : "" }} {{ request()->is("admin/roles*") ? "menu-open" : "" }} {{ request()->is("admin/permissions*") ? "menu-open" : "" }}">
                         <a class="has-arrow ai-icon {{ request()->is("admin/users*") ? "active" : "" }} {{ request()->is("admin/roles*") ? "active" : "" }} {{ request()->is("admin/permissions*") ? "active" : "" }}" href="javascript:void(0);" aria-expanded="false">
-                            {{ trans('cruds.userManagement.title') }}
-                                
+                            <i class="flaticon-381-user-8"></i> 
+                            <span class="nav-text">{{ trans('cruds.userManagement.title') }}</span>    
                         </a>
                         <ul aria-expanded="false">
                             @can('user_access')
@@ -170,22 +178,27 @@
                 @endcan
                 <li class="">
                     <a href="{{ route("admin.systemCalendar") }}" class="{{ request()->is("admin/system-calendar") || request()->is("admin/system-calendar/*") ? "active" : "" }}">
-                        {{ trans('global.systemCalendar') }}
                         
+                        <i class="flaticon-381-calendar-3"></i> 
+                            <span class="nav-text">{{ trans('global.systemCalendar') }}</span>
                     </a>
                 </li>
                 @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
                     @can('profile_password_edit')
                         <li class="">
                             <a class="{{ request()->is('profile/password') || request()->is('profile/password/*') ? 'active' : '' }}" href="{{ route('profile.password.edit') }}">
-                                 {{ trans('global.change_password') }}
+                                 
+                                 <i class="flaticon-381-calendar-3"></i> 
+                            <span class="nav-text">{{ trans('global.change_password') }}</span>
                                  </a>
                         </li>
                     @endcan
                 @endif
                 <li class="">
                     <a href="{{ route('logout') }}">
-                        {{ trans('global.logout') }} 
+                        
+                        <i class="flaticon-381-exit-2"></i> 
+                            <span class="nav-text">{{ trans('global.logout') }} </span>
                         </a> 
                 </li>
         </ul>

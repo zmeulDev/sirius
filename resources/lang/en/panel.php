@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'site_title' => 'Spaco - CoWork CRM',
+    'site_title' => 'Sirius - DBA Panel',
 
 ];

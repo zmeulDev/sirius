@@ -1,20 +1,40 @@
-@extends('layouts.app')
-@section('content')
-<div class="login-box">
-    <div class="login-logo">
-        <div class="login-logo">
-            <a href="{{ route('admin.home') }}">
-                {{ trans('panel.site_title') }}
-            </a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body login-card-body">
-            <p class="login-box-msg">
-                {{ trans('global.reset_password') }}
-            </p>
 
-            <form method="POST" action="{{ route('password.request') }}">
+@extends('layouts.fullwidth')
+
+@section('content')
+<div class="col-xl-12">
+	<div class="card">
+		<div class="card-body p-0">
+			<div class="row m-0">
+				<div class="col-xl-6 col-md-6 sign text-center">
+					<div>
+						<div class="text-center my-5">
+							<img src="{{ asset('images/sirius-text.png')}}" alt="">
+						</div>
+                        @if(Route::has('password.request'))
+                        <div class="row d-flex justify-content-between mt-4 mb-2">
+                            <div class="mb-3">
+                                <a href="{{ route('register') }}">Register</a> | | <a href="{{ route('password.request') }}">Forgot Password?</a>
+                            </div>
+                            
+                        </div>
+                        
+                        @endif
+					</div>
+				</div>
+				<div class="col-xl-6 col-md-6">
+					<div class="sign-in-your py-4 px-2">
+						<h4 class="fs-20">Sign in</h4>
+						
+						<p></p>
+						
+                        @if(session()->has('message'))
+                            <p class="alert alert-info">
+                                {{ session()->get('message') }}
+                            </p>
+                        @endif
+
+                        <form method="POST" action="{{ route('password.request') }}">
                 @csrf
 
                 <input name="token" value="{{ $token }}" type="hidden">
@@ -50,7 +70,10 @@
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 @endsection

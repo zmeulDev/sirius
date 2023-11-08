@@ -2,10 +2,10 @@
 @section('content')
 <div class="content">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    Dashboard
+                    Dashboardu
                 </div>
 
                 <div class="card-body">
