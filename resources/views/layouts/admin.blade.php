@@ -166,8 +166,9 @@
             Content body start
         ***********************************-->
         <div class="content-body {{$body_class}}">
-            <!-- row -->
+            <div class="container-fluid">
 			@yield('content')
+            </div>
         </div>
         <!--**********************************
             Content body end

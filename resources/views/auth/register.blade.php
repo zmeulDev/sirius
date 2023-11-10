@@ -14,7 +14,7 @@
                         @if(Route::has('password.request'))
                         <div class="row d-flex justify-content-between mt-4 mb-2">
                             <div class="mb-3">
-                                <a href="{{ route('register') }}">Register</a> | | <a href="{{ route('password.request') }}">Forgot Password?</a>
+                                <a href="{{ route('login') }}">I have account</a> | | <a href="{{ route('password.request') }}">Forgot Password?</a>
                             </div>
                             
                         </div>

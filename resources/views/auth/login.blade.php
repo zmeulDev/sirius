@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<div class="col-xl-6 col-md-6">
-					<div class="sign-in-your py-4 px-2">
+					<div class="sign-in-your py-4 px-4">
 						<h4 class="fs-20">Sign in</h4>
 						
 						<p></p>
