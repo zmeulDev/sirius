@@ -183,27 +183,9 @@
                             <span class="nav-text">{{ trans('global.systemCalendar') }}</span>
                     </a>
                 </li>
-                @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
-                    @can('profile_password_edit')
-                        <li class="">
-                            <a class="{{ request()->is('profile/password') || request()->is('profile/password/*') ? 'active' : '' }}" href="{{ route('profile.password.edit') }}">
-                                 
-                                 <i class="flaticon-381-calendar-3"></i> 
-                            <span class="nav-text">{{ trans('global.change_password') }}</span>
-                                 </a>
-                        </li>
-                    @endcan
-                @endif
-                <li class="">
-                    <a href="{{ route('logout') }}">
-                        
-                        <i class="flaticon-381-exit-2"></i> 
-                            <span class="nav-text">{{ trans('global.logout') }} </span>
-                        </a> 
-                </li>
         </ul>
 
-        <a class="add-menu-sidebar" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#addOrderModalside" >+ New Project</a>
+        <a class="add-menu-sidebar" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#addOrderModalside" >+ New Checklist</a>
         <div class="copyright">
             <p><strong>Sirius Admin Dashboard</strong> © 2023 All Rights Reserved</p>
             <p>Made with <span class="heart"></span> in Cluj</p>
