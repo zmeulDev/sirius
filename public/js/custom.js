@@ -412,7 +412,7 @@ var Vora = function(){
 			handleLightgallery();
 			handleDraggableCard();
 			handleCkEditor();
-			domoPanel();
+			// domoPanel();
 			handleSupport();
 		},
 
