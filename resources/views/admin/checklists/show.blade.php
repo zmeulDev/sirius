@@ -128,24 +128,31 @@
     <div class="card-header">
         {{ trans('global.relatedData') }}
     </div>
-    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="#checklist_machines" role="tab" data-toggle="tab">
-                {{ trans('cruds.machine.title') }}
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#checklist_checklist_comments" role="tab" data-toggle="tab">
-                {{ trans('cruds.checklistComment.title') }}
-            </a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane" role="tabpanel" id="checklist_machines">
-            @includeIf('admin.checklists.relationships.checklistMachines', ['machines' => $checklist->checklistMachines])
-        </div>
-        <div class="tab-pane" role="tabpanel" id="checklist_checklist_comments">
-            @includeIf('admin.checklists.relationships.checklistChecklistComments', ['checklistComments' => $checklist->checklistChecklistComments])
+
+    <div class="card-body">
+        <div class="profile-tab">
+            <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+                <li class="nav-item" role="presentation">
+                    <a href="#checklist_machines" data-bs-toggle="tab" class="nav-link show active" aria-selected="true" role="tab">
+                        {{ trans('cruds.machine.title') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#checklist_checklist_comments" role="tab" data-bs-toggle="tab">
+                        {{ trans('cruds.checklistComment.title') }}
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-panel" role="tabpanel" id="checklist_machines">
+                    @includeIf('admin.checklists.relationships.checklistMachines', ['machines' => $checklist->checklistMachines])
+                </div>
+                <div class="tab-pane" role="tabpanel" id="checklist_checklist_comments">
+                    @includeIf('admin.checklists.relationships.checklistChecklistComments', ['checklistComments' =>
+                    $checklist->checklistChecklistComments])
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
