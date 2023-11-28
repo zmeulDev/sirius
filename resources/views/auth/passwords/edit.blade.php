@@ -32,7 +32,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-danger" type="submit">
+                        <button class="btn btn-primary" type="submit">
                             {{ trans('global.save') }}
                         </button>
                     </div>
@@ -60,7 +60,7 @@
                         <input class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password" name="password_confirmation" id="password_confirmation" required>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-danger" type="submit">
+                        <button class="btn btn-secondary" type="submit">
                             {{ trans('global.save') }}
                         </button>
                     </div>

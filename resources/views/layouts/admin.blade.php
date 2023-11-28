@@ -163,10 +163,7 @@
         ***********************************-->
         <div class="content-body {{$body_class}}">
             <div class="container-fluid">
-                @if(Session::has('message'))
-                <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-                @endif
-			@yield('content')
+			    @yield('content')
             </div>
         </div>
         <!--**********************************

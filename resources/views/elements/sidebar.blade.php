@@ -1,12 +1,9 @@
 <div class="dlabnav">
+    @include('elements.notification')
     <div class="dlabnav-scroll">
-        
-
         <ul class="metismenu" id="menu">
-                
                 <li>
                     <a class=" {{ request()->routeIs("admin.home") ? "active" : "" }}" href="{{ route("admin.home") }}">
-                        
                         <i class="flaticon-381-home-2"></i> 
                             <span class="nav-text">{{ trans('global.dashboard') }}</span>
                     </a>

@@ -10,6 +10,7 @@ use App\Models\Maintenance;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Session;
 
 class MaintenanceController extends Controller
 {
@@ -33,7 +34,8 @@ class MaintenanceController extends Controller
     {
         $maintenance = Maintenance::create($request->all());
 
-        return redirect()->route('admin.maintenances.index');
+        Session::flash('alert-class', 'alert-success'); 
+        return redirect()->route('admin.maintenances.index')->with('message', __('cruds.maintenance.fields.created_at'));
     }
 
     public function edit(Maintenance $maintenance)
@@ -63,7 +65,8 @@ class MaintenanceController extends Controller
 
         $maintenance->delete();
 
-        return back();
+        Session::flash('alert-class', 'alert-danger'); 
+        return back()->with('message', __('cruds.maintenance.fields.deleted_at'));
     }
 
     public function massDestroy(MassDestroyMaintenanceRequest $request)
