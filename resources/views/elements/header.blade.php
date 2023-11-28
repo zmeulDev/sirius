@@ -1,6 +1,6 @@
 
 
-<!--**********************************
+<--**********************************
     Header start
 ***********************************-->
 <div class="header">
@@ -21,12 +21,7 @@
                             <input type="text" class="form-control" placeholder="Search here...">
                         </div>
                     </li>
-                    <li class="nav-item dropdown notification_dropdown">
-                        <a class="nav-link bell bell-link" href="javascript:void(0)">
-                        <i class="flaticon-381-user-4" style="font-size: 180%" ></i> 
-                            <span class="badge text-white badge-primary rounded-circle">6</span>
-                        </a>
-                    </li>
+                    
                     <li class="nav-item dropdown notification_dropdown">
                         <a class="nav-link  ai-icon" href="javascript:void(0)" role="button" data-bs-toggle="dropdown">
                         <i class="flaticon-381-link-1" style="font-size: 180%"></i> 
@@ -46,7 +41,11 @@
                     </li>
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown">
-                            <i class="flaticon-381-user-4" style="font-size: 200%"></i> 
+                            <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
                             <div class="header-info">
                                 <span class="text-black">{{ Auth::user()->name }}</span>
                                 <p class="fs-12 mb-0">User role</p>

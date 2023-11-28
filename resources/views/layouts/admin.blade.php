@@ -20,10 +20,6 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="description" content="@yield('page_description', $page_description ?? '')"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Vora : Crypto Trading UI Admin  Bootstrap 5 Template" />
-	<meta property="og:title" content="Vora : Crypto Trading UI Admin Bootstrap 5 & Laravel Template" />
-	<meta property="og:description" content="{{ config('dz.name') }} | @yield('title', $page_title ?? '')" />
-	<meta property="og:image" content="https://Vora.dexignlab.com/xhtml/social-image.png" />
 	<meta name="format-detection" content="telephone=no">
 
     <!-- Favicon icon -->
@@ -167,6 +163,9 @@
         ***********************************-->
         <div class="content-body {{$body_class}}">
             <div class="container-fluid">
+                @if(Session::has('message'))
+                <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+                @endif
 			@yield('content')
             </div>
         </div>
@@ -220,6 +219,5 @@
     @endif
 
     @stack('scripts')
-	
 </body>
 </html>

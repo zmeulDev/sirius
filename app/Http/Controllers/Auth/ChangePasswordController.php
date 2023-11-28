@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateProfileRequest;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Session;
+
 
 class ChangePasswordController extends Controller
 {
@@ -21,7 +23,7 @@ class ChangePasswordController extends Controller
     public function update(UpdatePasswordRequest $request)
     {
         auth()->user()->update($request->validated());
-
+        Session::flash('alert-class', 'alert-success'); 
         return redirect()->route('profile.password.edit')->with('message', __('global.change_password_success'));
     }
 
@@ -29,9 +31,10 @@ class ChangePasswordController extends Controller
     {
         $user = auth()->user();
 
-        $user->update($request->validated());
-
+        $user->update($request->validated()); 
+        Session::flash('alert-class', 'alert-success'); 
         return redirect()->route('profile.password.edit')->with('message', __('global.update_profile_success'));
+        
     }
 
     public function destroy()
