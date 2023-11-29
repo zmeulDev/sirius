@@ -34,7 +34,7 @@ function getUrlParams(dParam) {
 		typography: "opensans",
 		version: "light",
 		layout: "vertical",
-		primary: "color_1",
+		primary: "color_12",
 		headerBg: "color_1",
 		navheaderBg: "color_1",
 		sidebarBg: "color_1",
