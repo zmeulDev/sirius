@@ -10,6 +10,7 @@
     </div>
 @endcan
 
+
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.machine.title_singular') }} {{ trans('global.list') }}
@@ -17,63 +18,31 @@
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Machine">
-                <thead>
-                    <tr>
-                        <th width="10">
-
-                        </th>
-                        <th>
-                            {{ trans('cruds.machine.fields.mch_name') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.machine.fields.mch_ip') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.machine.fields.mch_type') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.machine.fields.mch_sql') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <select class="search" strict="true">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach(App\Models\Machine::MCH_TYPE_SELECT as $key => $item)
-                                    <option value="{{ $item }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                            <select class="search" strict="true">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach(App\Models\Machine::MCH_SQL_SELECT as $key => $item)
-                                    <option value="{{ $item }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($machines as $key => $machine)
-                        <tr data-entry-id="{{ $machine->id }}">
-                            <td>
-
-                            </td>
+            <div id="example5_wrapper" class="dataTables_wrapper no-footer">
+                <table id="example5" class="display min-w850 dataTable no-footer" role="grid" aria-describedby="example5_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting" tabindex="0" aria-controls="example5">
+                                {{ trans('cruds.machine.fields.mch_name') }}
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example5">
+                                {{ trans('cruds.machine.fields.mch_ip') }}
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example5">
+                                {{ trans('cruds.machine.fields.mch_type') }}
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example5">
+                                {{ trans('cruds.machine.fields.mch_sql') }}
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example5">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($machines as $key => $machine)
+                        <tr role="row" data-entry-id="{{ $machine->id }}">
+                            
                             <td>
                                 {{ $machine->mch_name ?? '' }}
                             </td>
@@ -88,31 +57,32 @@
                             </td>
                             <td>
                                 @can('machine_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.machines.show', $machine->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.machines.show', $machine->id) }}">
+                                    {{ trans('global.view') }}
+                                </a>
                                 @endcan
-
+                
                                 @can('machine_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.machines.edit', $machine->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
+                                <a class="btn btn-xs btn-info" href="{{ route('admin.machines.edit', $machine->id) }}">
+                                    {{ trans('global.edit') }}
+                                </a>
                                 @endcan
-
+                
                                 @can('machine_delete')
-                                    <form action="{{ route('admin.machines.destroy', $machine->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
+                                <form action="{{ route('admin.machines.destroy', $machine->id) }}" method="POST"
+                                    onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                </form>
                                 @endcan
-
                             </td>
-
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -191,3 +161,14 @@ table.on('column-visibility.dt', function(e, settings, column, state) {
 
 </script>
 @endsection
+
+<!-- Custom css and js files for this page -->
+
+@push('styles')
+<link rel="stylesheet" href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css') }}">
+@endpush
+
+@push('scripts')
+<script type="text/javascript" src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+@endpush

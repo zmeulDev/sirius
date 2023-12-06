@@ -1,17 +1,10 @@
-@php
-    $controller = DzHelper::controller();
-    $page = $action = DzHelper::action();
-    $action = $controller.'_'.$action;
-@endphp
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 	<!-- PAGE TITLE HERE -->
-	<title>{{ config('dz.name') }} | @yield('title', $page_title ?? '')</title>
-
+	<title>{{ trans('panel.site_title') }} | {{ trans('global.home') }}</title>
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="" />
@@ -21,29 +14,18 @@
 	<meta name="description" content="@yield('page_description', $page_description ?? '')"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="format-detection" content="telephone=no">
-
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png')}}">
-    
-	@if(!empty(config('dz.public.pagelevel.css.'.$action))) 
-        @foreach(config('dz.public.pagelevel.css.'.$action) as $style)
-            <link href="{{ asset($style) }}" rel="stylesheet" type="text/css"/>
-        @endforeach
-    @endif
 
-    {{-- Global Theme Styles (used by all pages) --}}
-    @if(!empty(config('dz.public.global.css'))) 
-        @foreach(config('dz.public.global.css') as $style)
-            <link href="{{ asset($style) }}" rel="stylesheet" type="text/css"/>
-        @endforeach
-    @endif
+    @stack('styles')
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 	
 </head>
 <body>
 
-    <!--*******************
-        Preloader start
-    ********************-->
     <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
@@ -51,18 +33,7 @@
             <div class="sk-child sk-bounce3"></div>
         </div>
     </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
     <div id="main-wrapper">
-
-        <!--**********************************
-            Nav header start
-        ***********************************-->
         <div class="nav-header">
             <a href="{{ route("admin.home") }}" class="brand-logo">
 				<div class="logo-abbr">
@@ -125,96 +96,31 @@
                 
            
             </a>
-
             <div class="nav-control">
                 <div class="hamburger">
                     <span class="line"></span><span class="line"></span><span class="line"></span>
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-		
-		<!--**********************************
-            Elements Header
-        ***********************************-->
+
 		@include('elements.header')
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
         @include('elements.sidebar')
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-		
-        @php
-            $body_class = ''; 
-            if($page == 'ui_button'){ $body_class = 'btn-page';} 
-            if($page == 'ui_badge'){ $body_class = 'badge-demo';} 
-        @endphp
 
-		<!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body {{$body_class}}">
+        <div class="content-body">
             <div class="container-fluid">
 			    @yield('content')
             </div>
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
 
         @stack('models')
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
         @include('elements.footer')
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-		<!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
-
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    
-	<!-- Required vendors -->
-	@if(!empty(config('dz.public.global.js.top')))
-        @foreach(config('dz.public.global.js.top') as $script)
-            <script src="{{ asset($script) }}" type="text/javascript"></script>
-        @endforeach
-    @endif
-    @if(!empty(config('dz.public.pagelevel.js.'.$action)))
-        @foreach(config('dz.public.pagelevel.js.'.$action) as $script)
-            <script src="{{ asset($script) }}" type="text/javascript"></script>
-        @endforeach
-    @endif
-    @if(!empty(config('dz.public.global.js.bottom')))
-        @foreach(config('dz.public.global.js.bottom') as $script)
-            <script src="{{ asset($script) }}" type="text/javascript"></script>
-        @endforeach
-    @endif
-
+    <!-- Global JS -->
+    <script src="{{ asset('vendor/global/global.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     @stack('scripts')
+    <script src="{{ asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('js/dlabnav-init.js') }}"></script>
 </body>
 </html>

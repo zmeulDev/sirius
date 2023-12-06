@@ -1,5 +1,5 @@
 <div class="footer">
     <div class="copyright">
-        <p>Copyright © Designed &amp; Developed by <a href="http://dexignlab.com/" target="_blank">Dexignlab</a> 2023</p>
+        <p>Copyright © Yardi| Developed with <3 in Cluj | 2024</p>
     </div>
 </div>

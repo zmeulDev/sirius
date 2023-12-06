@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 
+
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
