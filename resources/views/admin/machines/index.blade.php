@@ -1,12 +1,14 @@
 @extends('layouts.admin')
+
 @section('content')
+@include('admin.machines.create')
+
 @can('machine_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.machines.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.machine.title_singular') }}
-            </a>
+            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#createMachine">{{ trans('global.add') }} {{ trans('cruds.machine.title_singular') }}</button>
         </div>
+        
     </div>
 @endcan
 
@@ -86,10 +88,8 @@
         </div>
     </div>
 </div>
-
-
-
 @endsection
+
 @section('scripts')
 @parent
 <script>
@@ -123,40 +123,8 @@
     }
   }
   dtButtons.push(deleteButton)
-@endcan
+@endcan  
 
-  $.extend(true, $.fn.dataTable.defaults, {
-    orderCellsTop: true,
-    order: [[ 1, 'desc' ]],
-    pageLength: 10,
-  });
-  let table = $('.datatable-Machine:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-  $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
-      $($.fn.dataTable.tables(true)).DataTable()
-          .columns.adjust();
-  });
-  
-let visibleColumnsIndexes = null;
-$('.datatable thead').on('input', '.search', function () {
-      let strict = $(this).attr('strict') || false
-      let value = strict && this.value ? "^" + this.value + "$" : this.value
-
-      let index = $(this).parent().index()
-      if (visibleColumnsIndexes !== null) {
-        index = visibleColumnsIndexes[index]
-      }
-
-      table
-        .column(index)
-        .search(value, strict)
-        .draw()
-  });
-table.on('column-visibility.dt', function(e, settings, column, state) {
-      visibleColumnsIndexes = []
-      table.columns(":visible").every(function(colIdx) {
-          visibleColumnsIndexes.push(colIdx);
-      });
-  })
 })
 
 </script>

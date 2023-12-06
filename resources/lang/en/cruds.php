@@ -243,7 +243,7 @@ return [
             'id_helper'              => ' ',
             'mch_name'               => 'Name',
             'mch_name_helper'        => 'machine name as in Stellar',
-            'mch_type'               => 'Type',
+            'mch_type'               => 'Machine Type',
             'mch_type_helper'        => ' ',
             'mch_sql'                => 'Sql',
             'mch_sql_helper'         => ' ',
