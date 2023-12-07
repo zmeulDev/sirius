@@ -104,8 +104,12 @@
                                 </div>
                                 <select class="col-8 default-select  {{ $errors->has('checklist') ? 'is-invalid' : '' }}"
                                     name="checklist_id" id="checklist_id" required>
+                                    <option value disabled {{ old('checklist', null)===null ? 'selected' : '' }}>
+                                        {{ trans('global.pleaseSelect') }}
+                                    </option>
                                     @foreach($checklists as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('checklist_id')==$id ? 'selected' : '' }}>{{ $entry }}
+                                    <option value="{{ $entry->id }}" {{ old('checklist_id')==$entry->$id ? 'selected' : '' }}>
+                                        {{ $entry->chk_name }}
                                     </option>
                                     @endforeach
                                 </select>

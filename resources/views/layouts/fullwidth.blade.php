@@ -36,11 +36,13 @@
     </div>
 </body>
 
-
-<!-- Global JS -->
-<script src="{{ asset('js/custom.min.js') }}"></script>
-<script src="{{ asset('js/dlabnav-init.js') }}"></script>
-
 @stack('scripts')
+
+    <!-- Global JS -->
+    <script src="{{ asset('vendor/global/global.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    @stack('scripts')
+    <script src="{{ asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('js/dlabnav-init.js') }}"></script>
 
 </html>
