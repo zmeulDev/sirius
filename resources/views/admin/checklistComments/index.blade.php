@@ -16,57 +16,26 @@
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-ChecklistComment">
+            <table id="example5" class="display min-w850 dataTable datatable-ChecklistComment" role="grid" aria-describedby="example5_info">
                 <thead>
                     <tr>
-                        <th width="10">
-
-                        </th>
-                        <th>
+                       <th class="sorting" tabindex="0" aria-controls="example5">
                             {{ trans('cruds.checklistComment.fields.id') }}
                         </th>
-                        <th>
+                        <th class="sorting" tabindex="0" aria-controls="example5">
                             {{ trans('cruds.checklistComment.fields.user') }}
                         </th>
-                        <th>
+                        <th class="sorting" tabindex="0" aria-controls="example5">
                             {{ trans('cruds.checklistComment.fields.checklist') }}
                         </th>
-                        <th>
-                            &nbsp;
+                        <th class="sorting" tabindex="0" aria-controls="example5">
+                            {{ trans('global.actions') }}
                         </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <select class="search">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach($users as $key => $item)
-                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                            <select class="search">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach($checklists as $key => $item)
-                                    <option value="{{ $item->chk_name }}">{{ $item->chk_name }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($checklistComments as $key => $checklistComment)
                         <tr data-entry-id="{{ $checklistComment->id }}">
-                            <td>
-
-                            </td>
                             <td>
                                 {{ $checklistComment->id ?? '' }}
                             </td>
@@ -145,39 +114,18 @@
   dtButtons.push(deleteButton)
 @endcan
 
-  $.extend(true, $.fn.dataTable.defaults, {
-    orderCellsTop: true,
-    order: [[ 1, 'desc' ]],
-    pageLength: 10,
-  });
-  let table = $('.datatable-ChecklistComment:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-  $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
-      $($.fn.dataTable.tables(true)).DataTable()
-          .columns.adjust();
-  });
-  
-let visibleColumnsIndexes = null;
-$('.datatable thead').on('input', '.search', function () {
-      let strict = $(this).attr('strict') || false
-      let value = strict && this.value ? "^" + this.value + "$" : this.value
-
-      let index = $(this).parent().index()
-      if (visibleColumnsIndexes !== null) {
-        index = visibleColumnsIndexes[index]
-      }
-
-      table
-        .column(index)
-        .search(value, strict)
-        .draw()
-  });
-table.on('column-visibility.dt', function(e, settings, column, state) {
-      visibleColumnsIndexes = []
-      table.columns(":visible").every(function(colIdx) {
-          visibleColumnsIndexes.push(colIdx);
-      });
-  })
 })
 
 </script>
 @endsection
+
+<!-- Custom css and js files for this page -->
+
+@push('styles')
+<link rel="stylesheet" href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css') }}">
+@endpush
+
+@push('scripts')
+<script type="text/javascript" src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+@endpush
