@@ -303,6 +303,8 @@ return [
             'checks_helper'         => 'json',
             'notes'                 => 'Notes',
             'notes_helper'          => ' ',
+            'status'                => 'Status',
+            'status_helper'         => ' ',
         ],
     ],
     'checklistComment' => [

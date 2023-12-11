@@ -37,7 +37,10 @@
                                 {{ trans('cruds.machine.fields.mch_sql') }}
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="example5">
-                                Actions
+                                {{ trans('cruds.machine.fields.checklist') }}
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example5">
+                                {{ trans('global.actions') }}
                             </th>
                         </tr>
                     </thead>
@@ -56,6 +59,9 @@
                             </td>
                             <td>
                                 {{ App\Models\Machine::MCH_SQL_SELECT[$machine->mch_sql] ?? '' }}
+                            </td>
+                            <td>
+                                {{ $machine->checklist->chk_name ?? '' }}
                             </td>
                             <td>
                                 @can('machine_show')

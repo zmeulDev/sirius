@@ -35,6 +35,9 @@
                             {{ trans('cruds.checklist.fields.domain') }}
                         </th>
                         <th>
+                            {{ trans('cruds.checklist.fields.status') }}
+                        </th>
+                        <th>
                             {{ trans('global.actions') }}
                         </th>
                     </tr>
@@ -59,6 +62,9 @@
                             </td>
                             <td>
                                 {{ $checklist->domain->domain_name ?? '' }}
+                            </td>
+                            <td>
+                                {{ App\Models\Checklist::STATUS_SELECT[$checklist->status] ?? '' }}
                             </td>
                             <td>
                                 @can('checklist_show')

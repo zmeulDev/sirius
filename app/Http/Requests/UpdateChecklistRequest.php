@@ -55,6 +55,9 @@ class UpdateChecklistRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'status' => [
+                'required',
+            ],
         ];
     }
 }

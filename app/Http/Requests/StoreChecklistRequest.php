@@ -55,6 +55,9 @@ class StoreChecklistRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'status' => [
+                'required',
+            ],
         ];
     }
 }

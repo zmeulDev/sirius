@@ -10,7 +10,7 @@
         <div class="form-group">
             <div class="form-group">
                 <a class="btn btn-default" href="{{ route('admin.checklists.index') }}">
-                    {{ trans('global.back_to_list') }} | Checklist show
+                    {{ trans('global.back_to_list') }}
                 </a>
             </div>
             <table class="table table-bordered table-striped">
@@ -111,6 +111,14 @@
                         </th>
                         <td>
                             {!! $checklist->notes !!}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.checklist.fields.status') }}
+                        </th>
+                        <td>
+                            {{ App\Models\Checklist::STATUS_SELECT[$checklist->status] ?? '' }}
                         </td>
                     </tr>
                 </tbody>

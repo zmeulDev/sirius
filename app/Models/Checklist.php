@@ -36,6 +36,16 @@ class Checklist extends Model implements HasMedia
         'other'      => 'Other',
     ];
 
+    public const STATUS_SELECT = [
+        'new'        => 'New',
+        'inprogress' => 'In progress',
+        'stalled'    => 'Stalled',
+        'completed'  => 'Completed',
+        'retired'    => 'Retired',
+        'handoff'    => 'HandOff',
+        'other'      => 'Other',
+    ];
+
     protected $fillable = [
         'chk_name',
         'type',
@@ -48,6 +58,7 @@ class Checklist extends Model implements HasMedia
         'details',
         'checks',
         'notes',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at',

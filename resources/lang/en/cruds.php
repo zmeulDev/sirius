@@ -2,8 +2,8 @@
 
 return [
     'userManagement' => [
-        'title'          => 'User',
-        'title_singular' => 'Users',
+        'title'          => 'User management',
+        'title_singular' => 'User management',
     ],
     'permission' => [
         'title'          => 'Permissions',
@@ -243,7 +243,7 @@ return [
             'id_helper'              => ' ',
             'mch_name'               => 'Name',
             'mch_name_helper'        => 'machine name as in Stellar',
-            'mch_type'               => 'Machine Type',
+            'mch_type'               => 'Type',
             'mch_type_helper'        => ' ',
             'mch_sql'                => 'Sql',
             'mch_sql_helper'         => ' ',
@@ -303,6 +303,8 @@ return [
             'checks_helper'         => 'json',
             'notes'                 => 'Notes',
             'notes_helper'          => ' ',
+            'status'                => 'Status',
+            'status_helper'         => ' ',
         ],
     ],
     'checklistComment' => [
