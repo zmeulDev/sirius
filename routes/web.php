@@ -1,6 +1,7 @@
 <?php
 
 Route::redirect('/', '/login');
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -8,6 +9,13 @@ Route::get('/home', function () {
 
     return redirect()->route('admin.home');
 });
+
+Route::get('logout', function ()
+{
+    auth()->logout();
+    Session()->flush();
+    return Redirect::to('/');
+})->name('logout');
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();

@@ -3,6 +3,8 @@
 @section('content')
 @include('admin.machines.create')
 
+<!-- TODO add machine status and stellarmachineId -->
+
 @can('machine_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
@@ -101,37 +103,37 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('machine_delete')
-  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
-  let deleteButton = {
-    text: deleteButtonTrans,
-    url: "{{ route('admin.machines.massDestroy') }}",
-    className: 'btn-danger',
-    action: function (e, dt, node, config) {
-      var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
-          return $(entry).data('entry-id')
-      });
+    @can('machine_delete')
+    let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
+    let deleteButton = {
+        text: deleteButtonTrans,
+        url: "{{ route('admin.machines.massDestroy') }}",
+        className: 'btn-danger',
+        action: function (e, dt, node, config) {
+        var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
+            return $(entry).data('entry-id')
+        });
 
-      if (ids.length === 0) {
-        alert('{{ trans('global.datatables.zero_selected') }}')
+        if (ids.length === 0) {
+            alert('{{ trans('global.datatables.zero_selected') }}')
 
-        return
-      }
+            return
+        }
 
-      if (confirm('{{ trans('global.areYouSure') }}')) {
-        $.ajax({
-          headers: {'x-csrf-token': _token},
-          method: 'POST',
-          url: config.url,
-          data: { ids: ids, _method: 'DELETE' }})
-          .done(function () { location.reload() })
-      }
+        if (confirm('{{ trans('global.areYouSure') }}')) {
+            $.ajax({
+            headers: {'x-csrf-token': _token},
+            method: 'POST',
+            url: config.url,
+            data: { ids: ids, _method: 'DELETE' }})
+            .done(function () { location.reload() })
+        }
+        }
     }
-  }
-  dtButtons.push(deleteButton)
-@endcan  
+    dtButtons.push(deleteButton)
+    @endcan  
 
-})
+    })
 
 </script>
 @endsection
@@ -139,10 +141,10 @@
 <!-- Custom css and js files for this page -->
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css') }}">
 @endpush
 
 @push('scripts')
-<script type="text/javascript" src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
 @endpush
